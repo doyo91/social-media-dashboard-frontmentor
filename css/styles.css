@@ -14,33 +14,46 @@
   --instagram-2: hsl(329, 70%, 58%);
   --youtube: hsl(348, 97%, 39%);
 
+
+  --bg-primary-color: hsl(0, 0%, 100%);
+  --bg-secondary-color: hsl(225, 100%, 98%);
+  --bg-card-color: hsl(227, 47%, 96%);
+  --text-primary: hsl(228, 12%, 44%);
+  --text-secondary: hsl(230, 17%, 14%);
+  --toggle: hsl(230, 22%, 74%);
+
   /* Dark Theme */
   --bg-dark-blue: #1d2029;
   --bg-very-dark-blue: #20222f;
   --bg-dark-desaturated-blue: hsl(228, 28%, 20%);
   --text-desaturated-blue: hsl(228, 34%, 66%);
   --text-white: hsl(0, 0%, 100%);
-  --toggle-dark: linear-gradient(
+  --toggle: linear-gradient(
     to right,
     hsl(210, 78%, 56%) 0%,
     hsl(146, 68%, 55%) 100%
   );
 
-  /* Light Theme */
-  --bg-white: hsl(0, 0%, 100%);
-  --bg-very-pale-blue: hsl(225, 100%, 98%);
-  --bg-light-grayish-blue: hsl(227, 47%, 96%);
-  --text-dark-grayish-blue: hsl(228, 12%, 44%);
-  --text-very-dark-blue: hsl(230, 17%, 14%);
-  --toggle-light: hsl(230, 22%, 74%);
+}
+
+[data-theme="dark"] {
+  --bg-primary-color: #1d2029;
+  --bg-secondary-color: #20222f;
+  --bg-card-color: hsl(228, 28%, 20%);
+  --text-primary: hsl(228, 34%, 66%);
+  --text-secondary: hsl(0, 0%, 100%);
+  --toggle: linear-gradient(
+    to right,
+    hsl(210, 78%, 56%) 0%,
+    hsl(146, 68%, 55%) 100%);
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family: "Inter", sans-serif;
-  color: var(--text-very-dark-blue);
-  background: var(--bg-white);
+  color: var(--text-secondary);
+  background: var(--bg-primary-color);
 }
 
 h1 {
@@ -81,17 +94,17 @@ h1 {
 
 /* Header */
 .header {
-  background: var(--bg-very-pale-blue);
+  background: var(--bg-secondary-color);
   padding-top: 2em;
   padding-bottom: 100px;
   border-radius: 0 0 20px 20px;
 }
 
 .header__total {
-  color: var(--text-dark-grayish-blue);
+  color: var(--text-primary);
   margin: 0.5em 0;
   font-weight: 600;
-  border-bottom: 1px solid var(--text-dark-grayish-blue);
+  border-bottom: 1px solid var(--text-secondary);
   padding-bottom: 1.5em;
 }
 
@@ -99,6 +112,9 @@ h1 {
   display: flex;
   justify-content: space-between;
   padding-top: 1em;
+}
+.dark-mode__title {
+  color: var(--text-primary);
 }
 
 .dark-mode__checkbox {
@@ -115,7 +131,7 @@ h1 {
   width: 80px;
   display: block;
   border-radius: 20px;
-  background: var(--toggle-light);
+  background: var(--toggle);
   padding: 5px;
   cursor: pointer;
   user-select: none;
@@ -127,7 +143,7 @@ h1 {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: var(--bg-white);
+  background: var(--bg-primary-color);
   transform: translateX(40px);
   transition: 0.3s;
   will-change: transform;
@@ -135,7 +151,7 @@ h1 {
 
 @media screen and (min-width: 600px) {
   .header {
-    background: var(--bg-very-pale-blue);
+    background: var(--bg-secondary-color);
     padding-top: 2em;
     padding-bottom: 100px;
     border-radius: 0 0 20px 20px;
@@ -159,7 +175,7 @@ h1 {
 .card {
   border-radius: 8px;
   overflow: hidden;
-  background: var(--bg-light-grayish-blue);
+  background: var(--bg-card-color);
   text-align: center;
   padding: 1.7em 0;
   position: relative;
@@ -196,7 +212,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-dark-grayish-blue);
+  color: var(--text-primary);
   font-size: 0.9em;
   font-weight: bold;
 }
@@ -213,7 +229,7 @@ h1 {
 .card-followers__title {
   display: block;
   text-transform: uppercase;
-  color: var(--text-dark-grayish-blue);
+  color: var(--text-primary);
   letter-spacing: 5px;
   font-size: 0.75em;
 }
@@ -245,7 +261,7 @@ h1 {
 }
 
 .overview__title {
-  color: var(--text-dark-grayish-blue);
+  color: var(--text-primary);
 }
 
 .card-small {
@@ -253,13 +269,13 @@ h1 {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
   row-gap: 1em;
-  background: var(--bg-light-grayish-blue);
+  background: var(--bg-card-color);
   border-radius: 8px;
   padding: 1.7em;
 }
 
 .card-small__views {
-  color: var(--text-dark-grayish-blue);
+  color: var(--text-primary);
   font-weight: bold;
   font-size: 0.9em;
   margin: 0;
@@ -302,7 +318,7 @@ h1 {
 }
 
 /* Modo dark según la seleccion en el sistema */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   body {
     background: var(--bg-dark-blue);
     color: var(--text-white);
@@ -353,4 +369,4 @@ h1 {
       border-bottom: none;
     }
   }
-}
+} */
