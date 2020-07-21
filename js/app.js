@@ -1,21 +1,30 @@
 const checkbox = document.getElementById("checkbox");
 const currentTheme = localStorage.getItem('theme');
 
+const cardTodayDown = document.querySelectorAll('.card-today--down .card-today__icon');
+const cardSmallDown = document.querySelectorAll('.card-small-percentage--down .card-small-percentage__icon');
+
+
 // if (window.matchMedia("(prefers-color-scheme)").matches) {
 //   checkbox.setAttribute("checked", true);
 // }
 
-// checkbox.addEventListener("change", function (event) {
-//   document.body.classList.toggle("is-dark-mode");
-// });
+// change src images with class --down
+for(let i = 0; i < cardTodayDown.length; i++ ) {
+    cardTodayDown[i].src = 'images/icon-down.svg';
+}
+
+for(let i = 0; i < cardSmallDown.length; i++ ) {
+    cardSmallDown[i].src = 'images/icon-down.svg';
+}
 
 
-
+// Change theme
 if (currentTheme) {
     document.documentElement.setAttribute('data-theme', currentTheme);
   
     if (currentTheme === 'dark') {
-        toggleSwitch.checked = true;
+        checkbox.checked = true;
     }
 }
 
